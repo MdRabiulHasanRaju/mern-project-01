@@ -41,13 +41,19 @@ exports.register = async (req, res)=>{
     }
 }
 
-exports.login = async (req, res)=>{
+exports.login = async (req, res, next)=>{
     try {
         const {email, password} = req.body;
 
         const userExist = await User.findOne({email})
         if(!userExist){
-            return res.status(400).json({msg:"Invalid Credentials!"})
+            const err = {
+                status: 400,
+                message: "Invalid Credentials!",
+                errorDetails: "Email / Password is invalid"
+            }
+            next(err)
+            // return res.status(400).json({msg:"Invalid Credentials!"})
         }
 
         const isPasswordValid = await userExist.passwordCheck(password)
@@ -60,13 +66,20 @@ exports.login = async (req, res)=>{
                 userId: userExist._id.toString()
             })
         }else{
-            res.status(401).json({
-                msg: "Invalid Credentials!"
-            })
+            const err = {
+                status: 401,
+                message: "Invalid Credentials!",
+                errorDetails: "Email / Password is invalid"
+            }
+            next(err)
+            // res.status(401).json({
+            //     msg: "Invalid Credentials!"
+            // })
         }
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({msg:"internal server error"})
+        next()
+        // res.status(500).json({msg:"internal server error"})
     }
 }

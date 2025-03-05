@@ -1,8 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-
 const router = require('./router/auth-router')
+const errorMiddleware = require('./middlewares/error-middleware')
 
 const app = express();
 
@@ -12,6 +12,8 @@ app.use('/api/auth/',router)
 app.get('/',(req,res)=>{
     return res.status(200).send('Hello, This is Home Page');
 })
+
+app.use(errorMiddleware)
 
 const URI = process.env.DBLINK
 const PORT = process.env.PORT || 8080;

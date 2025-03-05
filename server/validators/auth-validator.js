@@ -26,3 +26,9 @@ exports.signupSchema = z.object({
 });
 
 
+exports.loginSchema = z.object({
+    email: z.string({required_error: "Email is Required!"}).trim().email({message: "Please Enter Valid Email!"}),
+    password: z.string({required_error: "Password is Required!"}).trim()
+})
+
+
