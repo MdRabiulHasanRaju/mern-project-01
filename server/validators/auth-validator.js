@@ -9,7 +9,7 @@ exports.signupSchema = z.object({
   email: z
     .string({ required_error: "email is required!" })
     .trim()
-    .email({message: "Invalid email address"})
+    .email({ message: "Invalid email address" })
     .min(3, { message: "email must be atleast of 3 character" })
     .max(255, { message: "email cannot be more than 255 characters" }),
   phone: z
@@ -22,13 +22,12 @@ exports.signupSchema = z.object({
     .trim()
     .min(6, { message: "password must be atleast of 6 character" })
     .max(255, { message: "password cannot be more than 255 characters" }),
-
 });
 
-
 exports.loginSchema = z.object({
-    email: z.string({required_error: "Email is Required!"}).trim().email({message: "Please Enter Valid Email!"}),
-    password: z.string({required_error: "Password is Required!"}).trim()
-})
-
-
+  email: z
+    .string({ required_error: "Email is Required!" })
+    .trim()
+    .email({ message: "Please Enter Valid Email!" }),
+  password: z.string({ required_error: "Password is Required!" }).trim(),
+});

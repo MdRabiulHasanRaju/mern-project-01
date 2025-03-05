@@ -61,9 +61,7 @@ userSchema.methods.passwordCheck = async function(password){
     const user = this
     const isPasswordValid = await bcryptjs.compare(password, user.password)
     if(!isPasswordValid){
-      return res.status(401).json({
-        msg: "Invalid Credentials"
-      })
+      return false
     }
 
     return true

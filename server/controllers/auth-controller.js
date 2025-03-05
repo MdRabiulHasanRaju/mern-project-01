@@ -7,7 +7,7 @@ exports.home = async (req, res)=>{
     res.status(200).send("This is from auth router")
 }
 
-exports.register = async (req, res)=>{
+exports.register = async (req, res, next)=>{
     try{
 
         const {username, email, phone, password} = req.body;
@@ -15,7 +15,14 @@ exports.register = async (req, res)=>{
         const userExist = await User.findOne({email})
 
         if(userExist){
-            return res.status(400).json({msg:"email already exists!"})
+            const err = {
+                status: 400,
+                message: "Duplicate Email!",
+                errorDetails: "Email already exists!"
+            }
+            next(err)
+            return;
+            // return res.status(400).json({msg:"email already exists!"})
         }
 
         // let saltRound = await bcryptjs.genSalt(10)
@@ -37,7 +44,8 @@ exports.register = async (req, res)=>{
 
     }catch(error){
         console.log(error);
-        res.status(500).json({msg:"internal server error"})
+        next()
+        // res.status(500).json({msg:"internal server error"})
     }
 }
 
@@ -53,6 +61,7 @@ exports.login = async (req, res, next)=>{
                 errorDetails: "Email / Password is invalid"
             }
             next(err)
+            return;
             // return res.status(400).json({msg:"Invalid Credentials!"})
         }
 

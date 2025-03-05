@@ -1,4 +1,4 @@
-exports.signupValidator = (schema) => async (req, res, next) =>{
+exports.authValidator = (schema) => async (req, res, next) =>{
     try {
         const parseBody = await schema.parseAsync(req.body)
         req.body = parseBody
