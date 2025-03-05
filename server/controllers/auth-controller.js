@@ -37,5 +37,36 @@ exports.register = async (req, res)=>{
 
     }catch(error){
         console.log(error);
+        res.status(500).json({msg:"internal server error"})
+    }
+}
+
+exports.login = async (req, res)=>{
+    try {
+        const {email, password} = req.body;
+
+        const userExist = await User.findOne({email})
+        if(!userExist){
+            return res.status(400).json({msg:"Invalid Credentials!"})
+        }
+
+        const isPasswordValid = await userExist.passwordCheck(password)
+
+        // const isPasswordValid = await bcryptjs.compare(password,userExist.password)
+        if(isPasswordValid){
+            res.status(200).json({
+                msg: "Login Successfull",
+                token: await userExist.tokenGenerate(),
+                userId: userExist._id.toString()
+            })
+        }else{
+            res.status(401).json({
+                msg: "Invalid Credentials!"
+            })
+        }
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({msg:"internal server error"})
     }
 }

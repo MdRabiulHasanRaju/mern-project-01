@@ -56,5 +56,21 @@ userSchema.methods.tokenGenerate = async function () {
   }
 };
 
+userSchema.methods.passwordCheck = async function(password){
+  try {
+    const user = this
+    const isPasswordValid = await bcryptjs.compare(password, user.password)
+    if(!isPasswordValid){
+      return res.status(401).json({
+        msg: "Invalid Credentials"
+      })
+    }
+
+    return true
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 const User = model("User", userSchema);
 module.exports = User;
