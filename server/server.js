@@ -1,13 +1,15 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const router = require('./router/auth-router')
+const authRouter = require('./router/auth-router')
+const contactRouter = require('./router/contact-router')
 const errorMiddleware = require('./middlewares/error-middleware')
 
 const app = express();
 
 app.use(express.json())
-app.use('/api/auth/',router)
+app.use('/api/auth/',authRouter)
+app.use('/api/form/',contactRouter)
 
 app.get('/',(req,res)=>{
     return res.status(200).send('Hello, This is Home Page');
