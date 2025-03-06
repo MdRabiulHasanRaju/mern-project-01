@@ -7,7 +7,9 @@ import { Contact } from "./pages/Contact";
 import { Login } from "./pages/Login";
 import { Registration } from "./pages/Registration";
 import { Services } from "./pages/Services";
+import { Error } from "./pages/Error";
 import Navbar from "./components/Navbar"
+import Footer from "./components/Footer/Footer"
 
 
 function App() {
@@ -22,7 +24,9 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="registration" element={<Registration />} />
           <Route path="services" element={<Services />} />
+          <Route path="*" element={<Error />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   )

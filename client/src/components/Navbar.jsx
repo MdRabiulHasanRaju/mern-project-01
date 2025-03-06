@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <>
         <header>
-            <div className="container">
+            <div className="container header">
                 <div className="logo-branding">
                     <NavLink to="/">MERN PROJECT</NavLink>
                 </div>

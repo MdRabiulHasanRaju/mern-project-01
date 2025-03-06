@@ -3,3 +3,54 @@
   padding:0;
   box-sizing: border-box;
 }
+a{
+  text-decoration: none;
+  color: black;
+}
+.container{
+  width:1168px;
+  margin:auto;
+}
+.button{
+  background-color: #fec604;
+  color: black;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  transition: all 300ms;
+}
+.button:hover{
+  background-color: white;
+  color: #c49a10;
+  border: 1px solid #fec604;
+}
+/* Registration Page css */
+.registration{
+  padding: 40px 20px;
+}
+.registration-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.form-group{
+  padding: 10px 0;
+  display: grid;
+}
+.form-control{
+  padding: 10px 15px;
+}
+.form-group>label{
+  font-weight: bold;
+}
+.reg-left {
+  width: 50%;
+}
+
+.reg-right {
+  width: 50%;
+}
+.reg-right>h1{
+  text-align: center;
+}
+/* Registration Page css */
