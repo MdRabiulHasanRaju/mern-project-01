@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useAuth } from "../store/auth";
 
 export const Login = () => {
     const [user, setUser] = useState({
@@ -15,9 +16,12 @@ export const Login = () => {
             [name]:value
         })
     }
+
+    const {storeToken} = useAuth();
+
     const handleFormSubmit = async (e) => {
         e.preventDefault()
-        console.log(user)
+        // console.log(user)
 
         try {
           const response = await fetch(`http://localhost:8080/api/auth/login`,{
@@ -28,7 +32,11 @@ export const Login = () => {
             body:JSON.stringify(user)
           })
           if(response.ok){
-            alert("login successful")
+            let res_data = await response.json();
+            console.log(res_data)
+            alert("Login Successful")
+            storeToken(res_data.token)
+
           }else{
             alert("invalid credentials")
           }
