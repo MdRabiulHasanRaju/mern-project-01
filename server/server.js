@@ -1,12 +1,20 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require("cors")
 const authRouter = require('./router/auth-router')
 const contactRouter = require('./router/contact-router')
 const errorMiddleware = require('./middlewares/error-middleware')
 
 const app = express();
 
+const corsOptions = {
+   origin: "http://localhost:5173",
+   methods: "POST, GET",
+   credentials:true
+}
+
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use('/api/auth/',authRouter)
 app.use('/api/form/',contactRouter)
