@@ -15,11 +15,31 @@ export const Login = () => {
             [name]:value
         })
     }
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         e.preventDefault()
         console.log(user)
+
+        try {
+          const response = await fetch(`http://localhost:8080/api/auth/login`,{
+            method:"POST",
+            headers:{
+              "Content-Type":"application/json"
+            },
+            body:JSON.stringify(user)
+          })
+          if(response.ok){
+            alert("login successful")
+          }else{
+            alert("invalid credentials")
+          }
+        } catch (error) {
+          console.log(error)
+        }
+
         
     }
+
+    
 
   return (
     <>

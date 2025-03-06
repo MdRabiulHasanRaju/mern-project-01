@@ -5,7 +5,7 @@ function Footer() {
     <>
         <footer>
             <div className="container footer">
-                <h4>CopyRight || AllRight Reserve </h4>
+                <h4>CopyRight || All Right Reserve {new Date().getFullYear()}</h4>
             </div>
         </footer>
     </>

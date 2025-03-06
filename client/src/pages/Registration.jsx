@@ -33,6 +33,12 @@ export const Registration = () => {
           })
   
           if(response.ok){
+            setUser({
+              username:"",
+              email: "",
+              phone: "",
+              password: ""
+            })
             navigate("/login")
           }
         } catch (error) {
