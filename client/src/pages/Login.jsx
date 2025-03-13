@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useAuth } from "../store/auth";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
     const [user, setUser] = useState({
@@ -18,6 +19,7 @@ export const Login = () => {
     }
 
     const {storeToken} = useAuth();
+    const navigate = useNavigate();
 
     const handleFormSubmit = async (e) => {
         e.preventDefault()
@@ -36,6 +38,7 @@ export const Login = () => {
             console.log(res_data)
             alert("Login Successful")
             storeToken(res_data.token)
+            navigate("/")
 
           }else{
             alert("invalid credentials")

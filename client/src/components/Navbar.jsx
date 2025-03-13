@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import "./Navbar.css"
+import { useAuth } from '../store/auth'
 
 function Navbar() {
+    const {isLoggedin} = useAuth();
   return (
     <>
         <header>
@@ -16,8 +18,14 @@ function Navbar() {
                         <li><NavLink to="/about">About</NavLink></li>
                         <li><NavLink to="/services">Services</NavLink></li>
                         <li><NavLink to="/contact">Contact</NavLink></li>
+                        {isLoggedin
+                        ?
+                        <li><NavLink to="/logout"> Logout</NavLink></li>
+                        :
+                        <>
                         <li><NavLink to="/login">Login</NavLink></li>
                         <li><NavLink to="/registration"> Registration</NavLink></li>
+                        </>}
                     </ul>
                 </nav>
             </div>
