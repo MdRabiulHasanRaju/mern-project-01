@@ -38,7 +38,7 @@ export const Login = () => {
             console.log(res_data)
             alert("Login Successful")
             storeToken(res_data.token)
-            navigate("/")
+            navigate("/dashboard")
 
           }else{
             alert("invalid credentials")
