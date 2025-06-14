@@ -16,3 +16,215 @@ nav>ul{
 nav>ul>li{
     padding: 8px 15px;
 }
+
+
+
+/* ---------- Base Navbar ---------- */
+.custom-navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+  padding: 1rem 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 0 0 10px 10px;
+  transition: background-color 0.3s ease;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+
+/* Brand logo styling */
+.navbar-logo {
+  filter: drop-shadow(0 0 2px rgba(255, 202, 0, 0.6));
+  border-radius: 6px;
+}
+
+/* Brand text color (if any) */
+.custom-navbar .navbar-brand {
+  color: #ffca00;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .navbar-brand:hover {
+  color: #e6b800;
+  text-decoration: none;
+}
+
+/* -------- Navbar links -------- */
+.navbar-nav {
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.navbar-nav .nav-link {
+  color: #333333;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Underline hover effect */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffca00;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffca00;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Active link style */
+.navbar-nav .nav-link.active {
+  color: #ffca00;
+  font-weight: 700;
+}
+
+.navbar-nav .nav-link.active::after {
+  width: 100%;
+}
+
+/* -------- Search form -------- */
+.custom-search-form {
+  max-width: 300px;
+  margin-left: 2rem;
+}
+
+.custom-search-form .form-control {
+  border-radius: 30px;
+  border: 1.8px solid #ffca00;
+  padding-left: 15px;
+  height: 38px;
+  font-weight: 500;
+  transition: border-color 0.3s ease;
+  color: #333;
+}
+
+.custom-search-form .form-control::placeholder {
+  color: #bfae3c;
+  font-weight: 400;
+}
+
+.custom-search-form .form-control:focus {
+  border-color: #ccac00;
+  outline: none;
+  box-shadow: 0 0 8px #ffca00aa;
+}
+
+/* Search button */
+.custom-search-form .btn-primary {
+  background-color: #ffca00;
+  border: none;
+  border-radius: 30px;
+  padding: 7px 22px;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 4px 12px rgb(255 202 0 / 0.5);
+  transition: background-color 0.3s ease;
+}
+
+.custom-search-form .btn-primary:hover {
+  background-color: #e6b800;
+  box-shadow: 0 6px 16px rgb(230 184 0 / 0.7);
+}
+
+/* -------- Hamburger Toggler -------- */
+.custom-toggler {
+  border: none;
+  outline: none;
+  width: 30px;
+  height: 22px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hamburger bars */
+.custom-toggler .navbar-toggler-icon {
+  display: block;
+  position: relative;
+  width: 22px;
+  height: 3px;
+  background-color: #ffca00;
+  border-radius: 2px;
+  transition: all 0.4s ease-in-out;
+}
+
+
+.custom-toggler .navbar-toggler-icon::before,
+.custom-toggler .navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 3px;
+  background-color: #ffca00;
+  border-radius: 2px;
+  transition: all 0.4s ease-in-out;
+}
+
+.custom-toggler .navbar-toggler-icon::before {
+  top: -7px;
+}
+
+.custom-toggler .navbar-toggler-icon::after {
+  bottom: -7px;
+}
+
+/* Toggler animation when open */
+.custom-toggler.collapsed .navbar-toggler-icon {
+  background-color: #ffca00;
+}
+
+.custom-toggler:not(.collapsed) .navbar-toggler-icon {
+  background-color: transparent;
+}
+
+.custom-toggler:not(.collapsed) .navbar-toggler-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.custom-toggler:not(.collapsed) .navbar-toggler-icon::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 991.98px) {
+  .custom-search-form {
+    margin: 0.75rem 0 0 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .custom-navbar .navbar-nav {
+    gap: 0;
+    flex-direction: column;
+    margin-top: 0.5rem;
+  }
+
+  .custom-navbar .navbar-nav .nav-link {
+    padding: 0.75rem 1rem;
+    font-size: 1.1rem;
+  }
+}
+

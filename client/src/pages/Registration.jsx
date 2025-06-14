@@ -66,7 +66,7 @@ export const Registration = () => {
     </Helmet>
       <section className="registration">
         <div className="container row col-md-12 registration-container">
-          <div className="col-md-6 reg-left">
+          <div className="col-md-6 reg-left animate__animated animate__fadeInUp">
             <img
               src="/images/registration.avif"
               width={400}
@@ -74,7 +74,7 @@ export const Registration = () => {
               alt="registration-image"
             />
           </div>
-          <div className="col-md-6 reg-right">
+          <div className="col-md-6 reg-right animate__animated animate__fadeInDown">
             <h1>Registration Form</h1>
             <form onSubmit={handleFormSubmit}>
               <div className="form-group">

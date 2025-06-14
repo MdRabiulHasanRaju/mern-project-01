@@ -188,3 +188,9 @@ textarea.form-input {
   background-color: #ff5f59;
 }
 /* contact page css end */
+
+@media(max-width:768px) {
+  .registration img{
+    width: 100%!important;
+  }
+}

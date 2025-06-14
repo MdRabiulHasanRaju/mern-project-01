@@ -68,7 +68,7 @@ export const Login = () => {
     </Helmet>
       <section className="registration">
         <div className="container row col-md-12 registration-container">
-          <div className="col-md-6 reg-left">
+          <div className="col-md-6 reg-left animate__animated animate__lightSpeedInRight">
             <img
               src="/images/login.webp"
               width={400}
@@ -76,7 +76,7 @@ export const Login = () => {
               alt="registration-image"
             />
           </div>
-          <div className="col-md-6 reg-right">
+          <div className="col-md-6 reg-right animate__animated animate__lightSpeedInLeft">
             <h1>Login to Your Account</h1>
             <form onSubmit={handleFormSubmit}>
               <div className="form-group">
