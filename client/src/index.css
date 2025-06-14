@@ -7,10 +7,10 @@ a{
   text-decoration: none;
   color: black;
 }
-.container{
+/* .container{
   width:1168px;
   margin:auto;
-}
+} */
 .button{
   background-color: #fec604;
   color: black;
@@ -28,11 +28,11 @@ a{
 .registration{
   padding: 40px 20px;
 }
-.registration-container{
+/* .registration-container{
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
+} */
 .form-group{
   padding: 10px 0;
   display: grid;
@@ -43,13 +43,13 @@ a{
 .form-group>label{
   font-weight: bold;
 }
-.reg-left {
+/* .reg-left {
   width: 50%;
 }
 
 .reg-right {
   width: 50%;
-}
+} */
 .reg-right>h1{
   text-align: center;
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { BrowserRouter , Routes, Route} from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import {Home} from "./pages/Home";
 import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
@@ -18,6 +19,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+      <HelmetProvider>
       <Navbar/>
         <Routes>
           <Route index  element={<Home />} />
@@ -31,6 +33,7 @@ function App() {
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
+        </HelmetProvider>
       </BrowserRouter>
     </>
   )

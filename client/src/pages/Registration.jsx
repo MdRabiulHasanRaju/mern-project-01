@@ -1,7 +1,16 @@
-import { useState } from "react"
+import { useState , useEffect} from "react"
 import {useNavigate} from "react-router-dom"
+import { Helmet } from 'react-helmet-async';
 
 export const Registration = () => {
+
+  useEffect(() => {
+    document.title = "Registration | Macro School";
+    const meta = document.querySelector("meta[name='description']");
+    if (meta) meta.setAttribute("content", "This is the Registration of Macro School.");
+
+  }, []);
+
     const [user, setUser] = useState({
         username: "",
         email: "",
@@ -51,9 +60,13 @@ export const Registration = () => {
 
   return (
     <>
+    <Helmet>
+        <title>Registration | Macro School</title>
+        <meta name="description" content="This is the Registration of Macro School." />
+    </Helmet>
       <section className="registration">
-        <div className="container registration-container">
-          <div className="reg-left">
+        <div className="container row col-md-12 registration-container">
+          <div className="col-md-6 reg-left">
             <img
               src="/images/registration.avif"
               width={400}
@@ -61,7 +74,7 @@ export const Registration = () => {
               alt="registration-image"
             />
           </div>
-          <div className="reg-right">
+          <div className="col-md-6 reg-right">
             <h1>Registration Form</h1>
             <form onSubmit={handleFormSubmit}>
               <div className="form-group">
